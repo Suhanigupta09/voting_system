@@ -2,16 +2,67 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width" />
-  <title>IC Hello Starter</title>
-  <base href="/" />
-  <link rel="icon" href="/favicon.ico" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voting System</title>
+  <link rel="stylesheet" href="./src/index.css">
 </head>
 
 <body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.jsx"></script>
+  <header class="header">
+    <h1 id="site-title">Voting System</h1>
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="#create-vote" class="nav-link">Create Vote</a></li>
+        <li class="nav-item"><a href="#vote-list" class="nav-link">Votes</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <section id="create-vote" class="create-vote-section">
+      <h2 class="section-title">Create New Vote</h2>
+      <form id="vote-form" class="vote-form">
+        <div class="form-group">
+          <label for="vote-title" class="form-label">Title</label>
+          <input type="text" id="vote-title" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label for="vote-description" class="form-label">Description</label>
+          <textarea id="vote-description" class="form-input" rows="3" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="vote-options" class="form-label">Options</label>
+          <div id="option-list" class="option-list">
+            <div class="option-item">
+              <input type="text" class="form-input option-input" placeholder="Option 1" required>
+              <button type="button" class="remove-option-btn" onclick="removeOption(this)">Remove</button>
+            </div>
+            <div class="option-item">
+              <input type="text" class="form-input option-input" placeholder="Option 2" required>
+              <button type="button" class="remove-option-btn" onclick="removeOption(this)">Remove</button>
+            </div>
+          </div>
+          <button type="button" id="add-option-btn" class="add-option-btn" onclick="addOption()">Add Option</button>
+        </div>
+        <button type="submit" class="submit-btn">Create Vote</button>
+      </form>
+    </section>
+
+    <section id="vote-list" class="vote-list-section">
+      <h2 class="section-title">Votes</h2>
+      <div id="votes-container" class="votes-container">
+        <!-- Vote items will be dynamically added here -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2023 Voting System</p>
+  </footer>
+
+  <script src="./src/script.js"></script>
 </body>
 
 </html>
